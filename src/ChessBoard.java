@@ -8,14 +8,11 @@ public class ChessBoard {
     public String getGameStatus() {
         return gameStatus;
     }
-    public boolean isInRange(int row_beg,
-                             int column_beg,
-                             int row_end,
-                             int column_end){
-        if(row_beg<0 || row_beg>7) return false;
-        if(row_end<0 || row_end>7) return false;
-        if(column_beg<0 || column_beg>7) return false;
-        if(column_end<0 || column_end>7) return false;
+    public boolean isInRange(Position beginning, Position end){
+        if(beginning.x<0 || beginning.x>7) return false;
+        if(beginning.y<0 || beginning.y>7) return false;
+        if(end.x<0 || end.x>7) return false;
+        if(end.y<0 || end.y>7) return false;
         return true;
     }
 
@@ -68,31 +65,34 @@ public class ChessBoard {
                 System.out.println("|");
             }
             System.out.println("——+—―—+—―—+—―—+—―—+—―—+—―—+—―—+—―—+");
-            int row_beg = -1;
+            /*int row_beg = -1;
             int columny_beg = -1;
             int row_end = -1;
-            int column_end = -1;
+            int column_end = -1;*/
+
+            Position beginning = new Position(-1,-1);
+            Position end = new Position(-1,-1);
             do{
             if (currentPlayer) {
                 System.out.println("Ruch bialego gracza");
             } else System.out.println("Ruch czarnego gracza");
 
             System.out.println("Podaj wspolrzedne poczatku");
-            System.out.print("y: ");
-            row_beg = Integer.parseInt(scanner.nextLine()) - 1;
+            System.out.print("kolumna: ");
+            beginning.y = Integer.parseInt(scanner.nextLine()) - 1;
 
-            System.out.print("x: ");
-            columny_beg = Integer.parseInt(scanner.nextLine()) - 1;
+            System.out.print("rzad: ");
+            beginning.x = Integer.parseInt(scanner.nextLine()) - 1;
 
             System.out.println("Podaj wspolrzedne konca");
-            System.out.print("y: ");
-            row_end = Integer.parseInt(scanner.nextLine()) - 1;
+            System.out.print("kolumna: ");
+            end.y = Integer.parseInt(scanner.nextLine()) - 1;
 
-            System.out.print("x: ");
-            column_end = Integer.parseInt(scanner.nextLine()) - 1;
-        }while (!isInRange(row_beg, columny_beg, row_end, column_end));
+            System.out.print("rzad: ");
+            end.x = Integer.parseInt(scanner.nextLine()) - 1;
+        }while (!isInRange(beginning,end));
 
-        result = board[row_beg][columny_beg].piece.isMovePossible(row_beg, columny_beg, row_end, column_end, board, currentPlayer);
+        result = board[beginning.x][beginning.y].piece.isMovePossible(beginning, end, board, currentPlayer);
 
         if (result) {
             System.out.println("ruch jest mozliwy");

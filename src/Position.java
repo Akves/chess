@@ -15,4 +15,15 @@ public class Position {
         this.x = x;
         this.y = y;
     }
+
+    public boolean isEmpty(){
+        if (this.piece.icon == '\u2003') return true;
+        return false;
+    }
+
+    public boolean equals(Position end){
+        if (this.x != end.x) return false;
+        if (this.y != end.y) return false;
+        return true;
+    }
 }

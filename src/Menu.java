@@ -21,7 +21,7 @@ public class Menu {
                 "Add second player",
         };
         play();
-        /*Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         String choice = "";
         while(!choice.equals(end)){
@@ -34,7 +34,7 @@ public class Menu {
                 case "3" -> addPlayer();
                 default -> System.out.println("--END MENU--");
             }
-        }*/
+        }
 
     }
 

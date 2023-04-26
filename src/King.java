@@ -7,7 +7,7 @@ public class King extends PiecesAbstract{
     }
 
     @Override
-    public boolean isMovePossible(int row_beg, int column_beg, int row_end, int column_end, Position[][] board, boolean currentPlayer) {
+    public boolean isMovePossible(Position beginning, Position end, Position[][] board, boolean currentPlayer) {
         return false;
     }
 
