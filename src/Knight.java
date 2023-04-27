@@ -26,11 +26,7 @@ public boolean isMovePossible(Position beginning, Position end, Position[][] boa
             else if(columnDiff == 2 && rowDiff ==1)result = true;
     }
 
-    if (result) {
-        board[end.x][end.y].piece.status = false;
-        board[end.x][end.y] = board[beginning.x][beginning.y];
-        board[beginning.x][beginning.y] = new Position(beginning.x, beginning.y, new Blank());
-    }
+    capture(result, beginning, end, board);
     return result;
 }
 

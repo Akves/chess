@@ -11,6 +11,15 @@ interface Pieces{
         }
         return result;
     };
+
+    default boolean capture(boolean result, Position beginning, Position end, Position[][] board) {
+        if(!result) return false;
+        board[end.x][end.y].piece.status = false;
+        board[end.x][end.y] = board[beginning.x][beginning.y];
+        board[beginning.x][beginning.y] = new Position(beginning.x, beginning.y, new Blank());
+        return true;
+    }
+
     public boolean getColour();
 }
 

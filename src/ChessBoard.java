@@ -18,8 +18,10 @@ public class ChessBoard {
 
     public ChessBoard() {
         for (int column = 0; column < 8; column++) {
-            board[6][column] = new Position(6, column, new Pawn(false, '♟'));
-            board[1][column] = new Position(1, column, new Pawn(true, '♙'));
+            /*board[6][column] = new Position(6, column, new Pawn(false, '♟'));
+            board[1][column] = new Position(1, column, new Pawn(true, '♙'));*/
+            board[6][column] = new Position(6, column, new Blank());
+            board[1][column] = new Position(1, column, new Blank());
             for (int x = 2; x < 6; x++) {
                 board[x][column] = new Position(x, column, new Blank());
             }
@@ -41,17 +43,17 @@ public class ChessBoard {
         board[7][5] = new Position(7, 5, new Bishop(false, '♝'));
 
         board[0][3] = new Position(0, 3, new Queen(true, '♕'));
-        board[7][4] = new Position(7, 4, new Queen(false, '♛'));
+        board[7][3] = new Position(7, 3, new Queen(false, '♛'));
 
         board[0][4] = new Position(0, 4, new King(true, '♔'));
-        board[7][3] = new Position(7, 3, new King(false, '♚'));
+        board[7][4] = new Position(7, 4, new King(false, '♚'));
     }
 
 
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
-        boolean result = false;
+        boolean result;
         //visuals, updating and making moves
         while (getGameStatus().equals("playing")) {
 
@@ -65,10 +67,6 @@ public class ChessBoard {
                 System.out.println("|");
             }
             System.out.println("——+—―—+—―—+—―—+—―—+—―—+—―—+—―—+—―—+");
-            /*int row_beg = -1;
-            int columny_beg = -1;
-            int row_end = -1;
-            int column_end = -1;*/
 
             Position beginning = new Position(-1,-1);
             Position end = new Position(-1,-1);
@@ -96,7 +94,7 @@ public class ChessBoard {
 
         if (result) {
             System.out.println("ruch jest mozliwy");
-            currentPlayer = !currentPlayer;
+            //currentPlayer = !currentPlayer;
         } else {
             System.out.println("ruch nie jest mozliwy");
         }

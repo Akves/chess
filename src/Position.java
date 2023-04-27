@@ -1,5 +1,3 @@
-import javax.lang.model.type.NullType;
-
 public class Position {
     int x;
     int y;
@@ -17,13 +15,11 @@ public class Position {
     }
 
     public boolean isEmpty(){
-        if (this.piece.icon == '\u2003') return true;
-        return false;
+        return this.piece.icon == '\u2003';
     }
 
     public boolean equals(Position end){
         if (this.x != end.x) return false;
-        if (this.y != end.y) return false;
-        return true;
+        return this.y == end.y;
     }
 }

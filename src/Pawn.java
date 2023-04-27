@@ -46,11 +46,7 @@ public class Pawn extends PiecesAbstract{
             }
         }
 
-        if (result) {
-            board[end.x][end.y].piece.status = false;
-            board[end.x][end.y] = board[beginning.x][beginning.y];
-            board[beginning.x][beginning.y] = new Position(beginning.x, beginning.y, new Blank());
-        }
+        capture(result, beginning, end, board);
         return result;
     }
 
