@@ -7,12 +7,7 @@ public class Pawn extends PiecesAbstract{
     }
 
     @Override
-    public boolean isMovePossible(Position beginning, Position end,
-                                  Position[][] board,
-                                  boolean currentPlayer) {
-        System.out.println("row_beg: " + beginning.x + " | column_beg:" + beginning.y);
-        System.out.println("row_end:" + end.x + " | column_end:" + end.y);
-        System.out.println(board[beginning.x][beginning.y].piece.icon);
+    public boolean isMovePossible(Position beginning, Position end, Position[][] board, boolean currentPlayer) {
 
 //      currentPlayer true is white, false is black
 //      colour true is white, false is black
@@ -45,8 +40,6 @@ public class Pawn extends PiecesAbstract{
                 if ( Math.abs(beginning.y- end.y)==1 && (beginning.x-1)==end.x) result = true;
             }
         }
-
-        capture(result, beginning, end, board);
         return result;
     }
 

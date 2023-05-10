@@ -13,11 +13,9 @@ public class Queen extends PiecesAbstract{
         if(!isPositionAvailable) return false;
 
         Position temp = new Position(beginning.x, beginning.y);
-        int columnDiff;
-        int rowDiff;
 
-        columnDiff = Math.abs(beginning.x-end.x);
-        rowDiff = Math.abs(beginning.y-end.y);
+        int columnDiff = Math.abs(beginning.x-end.x);
+        int rowDiff = Math.abs(beginning.y-end.y);
 
         if (currentPlayer == this.colour) {
                 if(beginning.x == end.x){
@@ -43,8 +41,6 @@ public class Queen extends PiecesAbstract{
             }else return result;
             result = true;
         }
-
-        capture(result, beginning, end, board);
         return result;
     }
 

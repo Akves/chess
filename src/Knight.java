@@ -25,8 +25,6 @@ public boolean isMovePossible(Position beginning, Position end, Position[][] boa
             if (columnDiff == 1 && rowDiff == 2)result = true;
             else if(columnDiff == 2 && rowDiff ==1)result = true;
     }
-
-    capture(result, beginning, end, board);
     return result;
 }
 
