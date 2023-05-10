@@ -1,4 +1,4 @@
-import javax.lang.model.type.NullType;
+import java.util.List;
 
 public class Position {
     int x;
@@ -14,5 +14,14 @@ public class Position {
     Position(int x, int y){
         this.x = x;
         this.y = y;
+    }
+
+    public boolean isEmpty(){
+        return this.piece.icon == '\u2003';
+    }
+
+    public boolean equals(Position end){
+        if (this.x != end.x) return false;
+        return this.y == end.y;
     }
 }

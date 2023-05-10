@@ -20,10 +20,12 @@ public class Menu {
                 "Gamemode",
                 "Add second player",
         };
+        play();
         Scanner scanner = new Scanner(System.in);
 
         String choice = "";
         while(!choice.equals(end)){
+
             PrintOptions.printOptions(options);
             choice = scanner.nextLine();
             switch (choice) {
