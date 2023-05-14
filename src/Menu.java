@@ -20,7 +20,7 @@ public class Menu {
                 "Gamemode",
                 "Add second player",
         };
-        play();
+        //play(); // for testing
         Scanner scanner = new Scanner(System.in);
 
         String choice = "";
