@@ -59,8 +59,8 @@ public class Account {
         }
     }
     public static void main(String[] args) {
-        Account Object = new Account();
-        //Object.start();
+        Account account = new Account();
+        account.start();
         Menu menu_instance = new Menu();
         menu_instance.start();
     }
