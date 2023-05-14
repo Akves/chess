@@ -75,7 +75,6 @@ public class ChessBoard {
                     }
                 }
             }
-        //System.out.println("otoczenie: " + kingSurroundings);
         return kingSurroundings;
     }
     public List<Integer>  kingInDanger(){
@@ -93,11 +92,9 @@ public class ChessBoard {
                         }else if (board[x][y].piece.colour != currentPlayer ){
                             temp.x = kingSurroundings.get(i);
                             temp.y = kingSurroundings.get(i+1);
-                            //System.out.println("checking " + temp.x + " | " + temp.y);
                             boolean result = board[x][y].piece.isMovePossible(board[x][y], temp, board, tempCurrentPlayer);
-                            //System.out.println(board[x][y].piece.icon + " - " + x + " | " + y + " =>" + temp.x + " | " + temp.y);
+
                             if (result){
-                                //System.out.println(board[x][y].piece.icon + " - " + x + " | " + y + " =>" + temp.x + " | " + temp.y);
                                 board[x][y].piece.isMovePossible(board[x][y], temp, board, tempCurrentPlayer);
                                 list.add(temp.x);
                                 list.add(temp.y);
@@ -106,21 +103,17 @@ public class ChessBoard {
                     }
                 }
             }
-        //System.out.println("lista zagrozonych pol" + list);
-
-        List<Integer>  output = isListUnique(list);
-        //System.out.println("lista bez powielen"+output);
-
-        return output;
+        return isListUnique(list);
     }
 
     public void createBoard(){
         for (int column = 0; column < 8; column++) {
-            /*board[6][column] = new Position(6, column, new Pawn(false, '♟'));
-            board[1][column] = new Position(1, column, new Pawn(true, '♙'));*/
+            board[6][column] = new Position(6, column, new Pawn(false, '♟'));
+            board[1][column] = new Position(1, column, new Pawn(true, '♙'));
 
-            board[6][column] = new Position(6, column, new Blank());
-            board[1][column] = new Position(1, column, new Blank());
+            //used for testing
+            /*board[6][column] = new Position(6, column, new Blank());
+            board[1][column] = new Position(1, column, new Blank());*/
             for (int x = 2; x < 6; x++) {
                 board[x][column] = new Position(x, column, new Blank());
             }
@@ -222,7 +215,6 @@ public class ChessBoard {
                 if(board[beginning.x][beginning.y].piece instanceof King){
 
                     for (int i =0; i<kingInDanger.size(); i+=2 ){
-                        //System.out.println(" - " + end.x + " | " + end.y + " =" + kingInDanger.get(i) + " | " + kingInDanger.get(i+1));
                         if (end.x == kingInDanger.get(i) && end.y == kingInDanger.get(i+1)){
                             System.out.println("To pole jest atakowane!!!");
                             isKingSafe = false;
